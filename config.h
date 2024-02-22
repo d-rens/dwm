@@ -43,7 +43,18 @@ static Sp scratchpads[] = {
 };
 
 /* tagging */
-static const char *tags[] = { "1", "2", "3", "4", "5", "6", "7", "8", "9" };
+static const char *tags[] = { 
+    "1-writing", 
+    "2-prog", 
+    "3-mesg", 
+    "4-media", 
+    "5-img-editing", 
+    "6-bib", 
+    "7-sec", 
+    "8-web", 
+    "9-BruteForcing" 
+};
+
 
 static const Rule rules[] = {
 	/* xprop(1):
@@ -51,8 +62,20 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	*/
 	/* class      instance      title       	 tags mask    isfloating   isterminal  noswallow  monitor */
-	{ "Gimp",     NULL,         NULL,       	  1 << 8,     0,           0,         0,          -1 }, // goes to tag 9
-	{ "inkscape", NULL,         NULL,       	  1 << 8,     0,           0,         0,          -1 },
+	{ "gimp",     NULL,         NULL,       	  1 << 4,     0,           0,         0,          -1 }, // goes to tag 9
+	{ "inkscape", NULL,         NULL,       	  1 << 4,     0,           0,         0,          -1 },
+    { "firefox",  NULL,         NULL,       	  1 << 7,     0,           0,         0,          -1 }, // goes to tag 8
+    { "Element",  NULL,         NULL,       	  1 << 2,     0,           0,         0,          -1 }, // goes to tag 3
+    { "vscodium", NULL,         NULL,       	  1 << 1,     0,           0,         0,          -1 }, // goes to tag 2
+    { "zathura",  NULL,         NULL,       	  1 << 0,     0,           0,         0,          -1 }, // goes to tag 1
+    { "mpv",      NULL,       NULL,        1 << 3,      0,           0,          0,         -1 }, // Music, Videos & Pictures -> Tag 4
+    { "Signal",   NULL,       NULL,        1 << 2,      0,           0,          0,         -1 }, // Messaging -> Tag 3
+    // Special handling for nvim, given its versatile use across different categories
+    // Example for nvim when used specifically for programming might need to be distinguished by instance or title
+    { "nvim",     "programming", NULL,     1 << 1,      0,           0,          0,         -1 }, // Programming -> Tag 2
+    // Other nvim instances can be handled similarly with unique instance names or titles as needed
+    // Continuing with other rules
+    { "keepassxc", NULL,      NULL,        1 << 6,      0,           0,          0,         -1 }, // Security -> Tag 7
 	{ NULL,       NULL,         "Event Tester",       0,          0,           0,         1,          -1 },
 	{ TERMCLASS,  NULL,         NULL,       	  0,          0,           1,         0,          -1 },
 	{ TERMCLASS,  "floatterm",  NULL,       	  0,          1,           1,         0,          -1 },
