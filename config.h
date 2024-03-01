@@ -62,20 +62,33 @@ static const Rule rules[] = {
 	 *	WM_NAME(STRING) = title
 	*/
 	/* class      instance      title       	 tags mask    isfloating   isterminal  noswallow  monitor */
-	{ "gimp",     NULL,         NULL,       	  1 << 4,     0,           0,         0,          -1 }, // goes to tag 9
+	{ "gimp",     NULL,         NULL,       	  1 << 4,     0,           0,         0,          -1 }, // goes to tag 5
 	{ "inkscape", NULL,         NULL,       	  1 << 4,     0,           0,         0,          -1 },
-    { "firefox",  NULL,         NULL,       	  1 << 7,     0,           0,         0,          -1 }, // goes to tag 8
+    { "firefox",  NULL,         NULL,       	  1 << 7,     0,           0,         0,          -1 }, // goes to tag 5
+    { "Tor Browser",  NULL,     NULL,       	  1 << 7,     0,           0,         0,          -1 }, // goes to tag 5
+    { "zotero",  NULL,     NULL,       	  1 << 5,     0,           0,         0,          -1 }, // goes to tag 5
+    { "jabref",  NULL,     NULL,       	  1 << 5,     0,           0,         0,          -1 }, // goes to tag 5
+    { "JabRef",  NULL,     NULL,       	  1 << 5,     0,           0,         0,          -1 }, // goes to tag 5
     { "Element",  NULL,         NULL,       	  1 << 2,     0,           0,         0,          -1 }, // goes to tag 3
+    { "abook",    NULL,         NULL,       	  1 << 2,     0,           0,         0,          -1 }, // goes to tag 3
+    { "neomutt",  NULL,         NULL,       	  1 << 2,     0,           0,         0,          -1 }, // goes to tag 3
+    { "mutt",  NULL,         NULL,       	  1 << 2,     0,           0,         0,          -1 }, // goes to tag 3
     { "vscodium", NULL,         NULL,       	  1 << 1,     0,           0,         0,          -1 }, // goes to tag 2
+    { "VSCodium", NULL,         NULL,       	  1 << 1,     0,           0,         0,          -1 }, // goes to tag 2
     { "zathura",  NULL,         NULL,       	  1 << 0,     0,           0,         0,          -1 }, // goes to tag 1
+    { "obsidian",  NULL,         NULL,       	  1 << 0,     0,           0,         0,          -1 }, // goes to tag 1
     { "mpv",      NULL,       NULL,        1 << 3,      0,           0,          0,         -1 }, // Music, Videos & Pictures -> Tag 4
+    { "nempcpp",      NULL,       NULL,        1 << 3,      0,           0,          0,         -1 }, // Music, Videos & Pictures -> Tag 4
+    { "newsboat",      NULL,       NULL,        1 << 3,      0,           0,          0,         -1 }, // Music, Videos & Pictures -> Tag 4
     { "Signal",   NULL,       NULL,        1 << 2,      0,           0,          0,         -1 }, // Messaging -> Tag 3
     // Special handling for nvim, given its versatile use across different categories
     // Example for nvim when used specifically for programming might need to be distinguished by instance or title
     { "nvim",     "programming", NULL,     1 << 1,      0,           0,          0,         -1 }, // Programming -> Tag 2
+    { "smerge",     "programming", NULL,     1 << 1,      0,           0,          0,         -1 }, // Programming -> Tag 2
     // Other nvim instances can be handled similarly with unique instance names or titles as needed
     // Continuing with other rules
-    { "keepassxc", NULL,      NULL,        1 << 6,      0,           0,          0,         -1 }, // Security -> Tag 7
+    { "KeePassXC", NULL,      NULL,        1 << 6,      0,           0,          0,         -1 }, // Security -> Tag 7
+    { "Monero", NULL,      NULL,        1 << 6,      0,           0,          0,         -1 }, // Security -> Tag 7
 	{ NULL,       NULL,         "Event Tester",       0,          0,           0,         1,          -1 },
 	{ TERMCLASS,  NULL,         NULL,       	  0,          0,           1,         0,          -1 },
 	{ TERMCLASS,  "floatterm",  NULL,       	  0,          1,           1,         0,          -1 },
