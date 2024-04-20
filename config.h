@@ -46,25 +46,17 @@ static Sp scratchpads[] = {
 /* tagging */
 static const char *tags[] = { 
     /*
-    "1-writing", 
-    "2-prog", 
-    "3-mesg", 
-    "4-media", 
-    "5-img-editing", 
-    "6-bib", 
-    "7-sec", 
-    "8-web", 
-    "9-BruteForcing" 
-       //
-    "writ", 
-    "prog", 
-    "mesg", 
-    "medi", 
-    "medi-e", 
-    "bib", 
-    "sec", 
-    "web", 
-    "figuring" */
+    "0-writing", 
+    "1-prog", 
+    "2-mesg", 
+    "3-media", 
+    "4-img-editing", 
+    "5-bib", 
+    "6-sec", 
+    "7-web", 
+    "8-BruteForcing" 
+    "9-figuring" 
+    */
     "📝",
     "💻",
     "✉️ ",
@@ -261,6 +253,8 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask, XK_t,		    setlayout,	        {.v = &layouts[1]} }, /* bstack */
 	{ MODKEY|ShiftMask, XK_u,		    setlayout,	        {.v = &layouts[5]} }, /* monocle */
 	{ MODKEY|ShiftMask, XK_y,		    setlayout,	        {.v = &layouts[3]} }, /* dwindle */
+    { MODKEY,			XK_o,		        incnmaster, {.i = +1 } },
+    { MODKEY|ShiftMask, XK_o,		        incnmaster, {.i = -1 } },
 
     /* programs */
     { MODKEY,			XK_F4,		spawn,      SHCMD(TERMINAL " -e pulsemixer; kill -44 $(pidof dwmblocks)") },
@@ -276,8 +270,17 @@ static const Key keys[] = {
 
 
     /* scripts */
-	{ MODKEY,			XK_n,		    spawn,		SHCMD("st -e phd-shortcuts n") },
-	{ MODKEY,			XK_o,		    spawn,		SHCMD("phd-shortcuts o") },
+
+    // lecture notes 
+	{ MODKEY,       	XK_n,		    spawn,		SHCMD("figures a") },
+	{ MODKEY|ShiftMask,	XK_e,		    spawn,		SHCMD("figures e") },
+	{ MODKEY,       	XK_c,		    spawn,		SHCMD("figures c") },
+	{ MODKEY,   	    XK_F2,		    spawn,		SHCMD("select-lecture") },
+
+
+    // phd script
+	{ MODKEY|ShiftMask,	XK_n,		    spawn,		SHCMD("st -e phd-shortcuts n") },
+	//{ MODKEY,			XK_o,		    spawn,		SHCMD("phd-shortcuts o") },
 	{ MODKEY,			XK_x,		    spawn,		SHCMD("phd-shortcuts x") },
 	{ MODKEY|ShiftMask, XK_l,		    spawn,	    SHCMD("phd-shortcuts l") },
 	{ MODKEY|ShiftMask, XK_p,		    spawn,	    SHCMD("phd-shortcuts p") },
@@ -363,7 +366,6 @@ static const Key keys[] = {
     { MODKEY,			XK_e,		        spawn,		SHCMD(TERMINAL " -e neomutt ; pkill -RTMIN+12 dwmblocks") },
     { MODKEY,			XK_equal,	        spawn,		SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+") },
     { MODKEY,			XK_minus,	        spawn,		SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-") },
-    { MODKEY,			XK_o,		        incnmaster, {.i = +1 } },
     { MODKEY,			XK_period,	        spawn,		{.v = (const char*[]){ "mpc", "next", NULL } } },
     { MODKEY|ShiftMask,	XK_backslash,	    spawn,		SHCMD("") }, 
     { MODKEY|ShiftMask,	XK_comma,	        spawn,		{.v = (const char*[]){ "mpc", "seek", "0%", NULL } } },
@@ -376,7 +378,6 @@ static const Key keys[] = {
 	{ 0, XF86XK_Battery,		            spawn,		SHCMD("") }, 
     { MODKEY|ShiftMask, XK_equal,	        spawn,		SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 15%+") },
     { MODKEY|ShiftMask, XK_minus,	        spawn,		SHCMD("wpctl set-volume @DEFAULT_AUDIO_SINK@ 15%-") },
-    { MODKEY|ShiftMask, XK_o,		        incnmaster, {.i = -1 } },
     */
 
 };
