@@ -207,6 +207,7 @@ static const Key keys[] = {
 
 
     /* system */
+    { MODKEY,           XK_F1,	    spawn,		SHCMD("wacom-monitor-selector") },
     { 0, XF86XK_AudioLowerVolume,	spawn,		SHCMD("pulsemixer --change-volume -5") },
     { 0, XF86XK_AudioMute,		    spawn,		SHCMD("pulsemixer --toggle-mute") },
     { 0, XK_Print,	                spawn,		SHCMD("maim pic-full-$(date '+%y%m%d-%H%M-%S').png") },
@@ -264,8 +265,10 @@ static const Key keys[] = {
     { MODKEY,			XK_p,		spawn,		{.v = (const char*[]){ "mpc", "toggle", NULL } } },
     { MODKEY,			XK_r,		spawn,		{.v = (const char*[]){ TERMINAL, "-e", "lfub", NULL } } },
     { MODKEY,			XK_w,		spawn,		{.v = (const char*[]){ BROWSER, NULL } } },
-    { MODKEY|ShiftMask,	XK_d,		spawn,      {.v = (const char*[]){ "keepassxc", NULL } } },
+    { MODKEY|ShiftMask,	XK_d,		spawn,      {.v = (const char*[]){ "keepmenu", NULL } } },
+    { MODKEY|ShiftMask,	XK_c,		spawn,      {.v = (const char*[]){ "keepassxc", NULL } } },
     { MODKEY|ShiftMask, XK_r,		spawn,		{.v = (const char*[]){ TERMINAL, "-e", "htop", NULL } } },
+    { MODKEY,           XK_e,		spawn,		{.v = (const char*[]){ TERMINAL, "-e", "gomuks", NULL } } },
     { MODKEY|ShiftMask, XK_v,		spawn,		{.v = (const char*[]){ TERMINAL, "-e", "sudo", "nmtui", NULL } } },
 
 

@@ -14,7 +14,7 @@ I haven't kept `man dwm`/`dwm.1` updated though. PRs welcome on that, lol.
 
 - [Clickable statusbar](https://dwm.suckless.org/patches/statuscmd/) with my build of [dwmblocks](https://github.com/lukesmithxyz/dwmblocks).
 - Reads [xresources](https://dwm.suckless.org/patches/xresources/) colors/variables (i.e. works with `pywal`, etc.).
-- scratchpad: Accessible with <kbd>mod+shift+enter</kbd>.
+- scratchpad: Accessible with <kbd>mod+'</kbd>.
 - New layouts: bstack, fibonacci, deck, centered master and more. All bound to keys <kbd>super+(shift+)t/y/u/i</kbd>.
 - True fullscreen (<kbd>super+f</kbd>) and prevents focus shifting.
 - Windows can be made sticky (<kbd>super+s</kbd>).
