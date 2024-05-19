@@ -20,15 +20,15 @@ static int topbar                   = 0;        /* 0 means bottom bar */
 static char *fonts[]                = { "Maple Mono NF:size=12", "NotoColorEmoji:pixelsize=12:antialias=true:autohint=true"  };
 static char normbgcolor[]           = "#f5f5dc"; // dmenu not selected (Beige)
 static char normfgcolor[]           = "#4b4b4b"; // dmenu selected (Dark Gray)
-static char normbordercolor[]       = "#dcdcdc"; // dwm border not active (Gainsboro)
-static char selbordercolor[]        = "#a9a9a9"; // dwm border active (Dark Gray)
+static char normbordercolor[]       = "#85a5a5"; // dwm border not active (Gainsboro)
+static char selbordercolor[]        = "#ededed"; // dwm border active (Dark Gray)
 static char selfgcolor[]            = "#000000"; // fonts (Black)
 /*static char normbgcolor[]           = "#00f00f"; // dmenu not selected*/
 /*static char normfgcolor[]           = "#000077"; // dmenu selected*/
 /*static char normbordercolor[]       = "#000000"; // dwm border not active*/
 /*static char selbordercolor[]        = "#f0f000"; // dwm border active*/
 /*static char selfgcolor[]            = "#ffffff"; // fonts*/
-static char selbgcolor[]            = "#00f0f0"; // don't find it, now scurile color to find it
+static char selbgcolor[]            = "#f5f5dc"; // don't find it, now scurile color to find it
 static char *colors[][3] = {
        /*               fg           bg           border   */
        [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
