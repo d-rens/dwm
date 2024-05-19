@@ -7,23 +7,28 @@
 #define BROWSER "firefox"
 
 /* appearance */
-static unsigned int borderpx        = 1;        /* border pixel of windows */
+static unsigned int borderpx        = 2;        /* border pixel of windows */
 static unsigned int snap            = 32;       /* snap pixel */
-static unsigned int gappih          = 20;       /* horiz inner gap between windows */
+static unsigned int gappih          = 10;       /* horiz inner gap between windows */
 static unsigned int gappiv          = 10;       /* vert inner gap between windows */
 static unsigned int gappoh          = 10;       /* horiz outer gap between windows and screen edge */
-static unsigned int gappov          = 30;       /* vert outer gap between windows and screen edge */
+static unsigned int gappov          = 10;       /* vert outer gap between windows and screen edge */
 static int swallowfloating          = 0;        /* 1 means swallow floating windows by default */
 static int smartgaps                = 0;        /* 1 means no outer gap when there is only one window */
 static int showbar                  = 1;        /* 0 means no bar */
-static int topbar                   = 1;        /* 0 means bottom bar */
+static int topbar                   = 0;        /* 0 means bottom bar */
 static char *fonts[]                = { "Maple Mono NF:size=12", "NotoColorEmoji:pixelsize=12:antialias=true:autohint=true"  };
-static char normbgcolor[]           = "#00f00f";
-static char normbordercolor[]       = "#494949";
-static char normfgcolor[]           = "#000077";
-static char selfgcolor[]            = "#ffffff";
-static char selbordercolor[]        = "#f0f000";
-static char selbgcolor[]            = "#000044";
+static char normbgcolor[]           = "#f5f5dc"; // dmenu not selected (Beige)
+static char normfgcolor[]           = "#4b4b4b"; // dmenu selected (Dark Gray)
+static char normbordercolor[]       = "#dcdcdc"; // dwm border not active (Gainsboro)
+static char selbordercolor[]        = "#a9a9a9"; // dwm border active (Dark Gray)
+static char selfgcolor[]            = "#000000"; // fonts (Black)
+/*static char normbgcolor[]           = "#00f00f"; // dmenu not selected*/
+/*static char normfgcolor[]           = "#000077"; // dmenu selected*/
+/*static char normbordercolor[]       = "#000000"; // dwm border not active*/
+/*static char selbordercolor[]        = "#f0f000"; // dwm border active*/
+/*static char selfgcolor[]            = "#ffffff"; // fonts*/
+static char selbgcolor[]            = "#00f0f0"; // don't find it, now scurile color to find it
 static char *colors[][3] = {
        /*               fg           bg           border   */
        [SchemeNorm] = { normfgcolor, normbgcolor, normbordercolor },
@@ -210,10 +215,10 @@ static const Key keys[] = {
     { MODKEY,           XK_F1,	    spawn,		SHCMD("wacom-monitor-selector") },
     { 0, XF86XK_AudioLowerVolume,	spawn,		SHCMD("pulsemixer --change-volume -5") },
     { 0, XF86XK_AudioMute,		    spawn,		SHCMD("pulsemixer --toggle-mute") },
-    { 0, XK_Print,	                spawn,		SHCMD("maim pic-full-$(date '+%y%m%d-%H%M-%S').png") },
+    { 0, XK_Print,	                spawn,		SHCMD("maim ~/pi/full-$(date '+%y%m%d-%H%M-%S').png") },
     { 0, XF86XK_AudioRaiseVolume,	spawn,		SHCMD("pulsemixer --change-volume +5") },
-    { MODKEY,           XK_Down,	spawn,		SHCMD("brightness down 200") },
-    { MODKEY,           XK_Up,	    spawn,		SHCMD("brightness up 200") },
+    { MODKEY,           XK_Down,	spawn,		SHCMD("brightnessctl set 5%-") },
+    { MODKEY,           XK_Up,	    spawn,		SHCMD("brightnessctl set 5%+") },
 
 
 
@@ -263,11 +268,11 @@ static const Key keys[] = {
     { MODKEY,			XK_m,		spawn,      {.v = (const char*[]){ TERMINAL, "-e", "ncmpcpp", NULL } } },
     { MODKEY,			XK_p,		spawn,		SHCMD(TERMINAL " -e calcurse") },
     { MODKEY,			XK_p,		spawn,		{.v = (const char*[]){ "mpc", "toggle", NULL } } },
-    { MODKEY,			XK_r,		spawn,		{.v = (const char*[]){ TERMINAL, "-e", "lfub", NULL } } },
+    { MODKEY,			XK_r,		spawn,		{.v = (const char*[]){ TERMINAL, "-e", "lf", NULL } } },
     { MODKEY,			XK_w,		spawn,		{.v = (const char*[]){ BROWSER, NULL } } },
     { MODKEY|ShiftMask,	XK_d,		spawn,      {.v = (const char*[]){ "keepmenu", NULL } } },
     { MODKEY|ShiftMask,	XK_c,		spawn,      {.v = (const char*[]){ "keepassxc", NULL } } },
-    { MODKEY|ShiftMask, XK_r,		spawn,		{.v = (const char*[]){ TERMINAL, "-e", "htop", NULL } } },
+    { MODKEY|ShiftMask, XK_r,		spawn,		{.v = (const char*[]){ TERMINAL, "-e", "btop", NULL } } },
     { MODKEY,           XK_e,		spawn,		{.v = (const char*[]){ TERMINAL, "-e", "gomuks", NULL } } },
     { MODKEY|ShiftMask, XK_v,		spawn,		{.v = (const char*[]){ TERMINAL, "-e", "sudo", "nmtui", NULL } } },
 
@@ -288,9 +293,9 @@ static const Key keys[] = {
 	{ MODKEY|ShiftMask, XK_l,		    spawn,	    SHCMD("phd-shortcuts l") },
 	{ MODKEY|ShiftMask, XK_p,		    spawn,	    SHCMD("phd-shortcuts p") },
 
-    { MODKEY,			XK_F1,		    spawn,		SHCMD("mod") },
+    { MODKEY,			XK_F1,		    spawn,		SHCMD("semimak") },
     { MODKEY,			XK_F11,		    spawn,	    SHCMD("mpv --untimed --no-cache --no-osc --no-input-default-bindings --profile=low-latency --input-conf=/dev/null --title=webcam $(ls /dev/video[0,2,4,6,8] | tail -n 1)") },
-    { MODKEY|ShiftMask, XK_w,		    spawn,		SHCMD("wallpaper") },
+    { MODKEY|ShiftMask, XK_w,		    spawn,		SHCMD("wallpaper-select") },
 
     { MODKEY,			XK_BackSpace,	spawn,		{.v = (const char*[]){ "sysact", NULL } } },
     { MODKEY|ShiftMask, XK_BackSpace,   spawn,	    {.v = (const char*[]){ "sysact", NULL } } },
